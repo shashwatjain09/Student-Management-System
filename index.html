@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSphere | Student Management Hub</title>
+    <link rel="stylesheet" href="assets/CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+ <body>
+
+    <div class="bg-overlay-wrapper"></div>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>EduSphere</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#home" class="active"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="#register-section"><i class="fa-solid fa-user-plus"></i> Register</a>
+                <a href="#database-section"><i class="fa-solid fa-database"></i> Records</a>
+                <a href="#auth-section" class="btn-nav-auth">Sign In</a>
+            </nav>
+            <button class="mobile-toggle" id="mobileMenuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-wrapper">
+
+        <section id="home" class="hero-section glass-card">
+            <div class="hero-content">
+                <span class="badge-accent">Academic Management Suite v2.0</span>
+                <h1>Next-Gen Student Records Portal</h1>
+                <p>Deploy a colorful, interactive ecosystem designed to capture, process, and track student administrative data in real time with high visual clarity.</p>
+                <div class="hero-actions">
+                    <a href="#register-section" class="btn-primary">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#database-section" class="btn-secondary">View Live Roster</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-widget card-pink">
+                    <i class="fa-solid fa-users"></i>
+                    <div>
+                        <h4>Total Managed</h4>
+                        <p id="metricTotal">4</p>
+                    </div>
+                </div>
+                <div class="floating-widget card-cyan">
+                    <i class="fa-solid fa-bolt"></i>
+                    <div>
+                        <h4>Sync Speed</h4>
+                        <p>0.2ms</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="content-split-layout">
+            
+            <section id="register-section" class="form-panel glass-card title-gradient-purple">
+                <div class="section-title-block">
+                    <div class="icon-shape"><i class="fa-solid fa-id-card"></i></div>
+                    <h2>Student Registration</h2>
+                    <p>Input correct foundational details below to dynamically expand the application matrix.</p>
+                </div>
+                <form id="studentRegistrationForm">
+                    <div class="input-field">
+                        <label for="fullName"><i class="fa-solid fa-user"></i> Full Name</label>
+                        <input type="text" id="fullName" required placeholder="Ex: Rahul Sharma">
+                    </div>
+                    <div class="input-grid-row">
+                        <div class="input-field">
+                            <label for="regID"><i class="fa-solid fa-hashtag"></i> Roll Number / ID</label>
+                            <input type="text" id="regID" required placeholder="Ex: CSE-2026-08">
+                        </div>
+                        <div class="input-field">
+                            <label for="department"><i class="fa-solid fa-bookmark"></i> Department</label>
+                            <select id="department">
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Information Technology">Information Technology</option>
+                                <option value="Data Science">Data Science</option>
+                                <option value="Cyber Security">Cyber Security</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <label for="emailAddress"><i class="fa-solid fa-envelope"></i> Email Address</label>
+                        <input type="email" id="emailAddress" required placeholder="rahul@university.edu">
+                    </div>
+                    <button type="submit" class="btn-form-submit">
+                        <span>Compile & Commit Record</span>
+                        <i class="fa-solid fa-circle-plus"></i>
+                    </button>
+                </form>
+            </section>
+
+            <section id="database-section" class="roster-panel glass-card title-gradient-blue">
+                <div class="section-title-block">
+                    <div class="icon-shape"><i class="fa-solid fa-rectangle-list"></i></div>
+                    <h2>Active Database</h2>
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="rosterSearch" placeholder="Filter list instantly...">
+                    </div>
+                </div>
+                <div class="responsive-table-holder">
+                    <table id="rosterTable">
+                        <thead>
+                            <tr>
+                                <th>Student Identity</th>
+                                <th>Roll Number</th>
+                                <th>Department</th>
+                                <th>Contact E-mail</th>
+                                <th style="text-align: center;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rosterDataRows">
+                            </tbody>
+                    </table>
+                    <div id="fallbackEmptyState" class="empty-state hidden">
+                        <i class="fa-solid fa-database-exclamation"></i>
+                        <p>No results match your search filtering parameters.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section id="auth-section" class="auth-grid-container">
+            <div class="auth-card glass-card border-top-pink">
+                <div class="auth-header">
+                    <h3>Welcome Back</h3>
+                    <p>Sign in to administrative session</p>
+                </div>
+                <form class="auth-form" onsubmit="event.preventDefault(); alert('Login submission demo active');">
+                    <div class="input-field">
+                        <input type="email" placeholder="Administrative Email" required>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-auth login-accent">Authenticate Access</button>
+                </form>
+            </div>
+
+            <div class="auth-card glass-card border-top-cyan">
+                <div class="auth-header">
+                    <h3>Create Workspace</h3>
+                    <p>Register new institution node</p>
+                </div>
+                <form class="auth-form" onsubmit="event.preventDefault(); alert('Account registration demo active');">
+                    <div class="input-field">
+                        <input type="text" placeholder="Institution Name" required>
+                    </div>
+                    <div class="input-field">
+                        <input type="email" placeholder="System Administrator Email" required>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" placeholder="Choose Strong Password" required>
+                    </div>
+                    <button type="submit" class="btn-auth signup-accent">Establish Node</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="assets/JS/script.js"></script>
+</body>
+</html>
